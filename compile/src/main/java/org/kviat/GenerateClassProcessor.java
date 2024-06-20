@@ -45,22 +45,17 @@ public class GenerateClassProcessor extends AbstractProcessor {
         String fqClassName = packageName + "." + className;
         Writer writer = processingEnv.getFiler().createSourceFile(fqClassName).openWriter();
 
-        // Generate package declaration
         writer.write("package " + packageName + ";\n\n");
 
-        // Generate class declaration
         writer.write("public class " + className + " {\n\n");
 
-        // Generate fields
         for (String field : fields) {
             writer.write("    private " + field + ";\n");
         }
         writer.write("\n");
 
-        // Generate default constructor
         writer.write("    public " + className + "() { }\n\n");
 
-        // Generate getters and setters
         for (String field : fields) {
             String fieldName = field.substring(field.lastIndexOf(" ") + 1);
             String typeName = field.substring(0, field.lastIndexOf(" "));
@@ -72,7 +67,6 @@ public class GenerateClassProcessor extends AbstractProcessor {
             writer.write("    }\n\n");
         }
 
-        // Close class
         writer.write("}\n");
         writer.close();
     }
