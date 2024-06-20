@@ -12,7 +12,6 @@ repositories {
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
-    implementation(project(mapOf("path" to ":annotations")))
     implementation(project(mapOf("path" to ":compile")))
     annotationProcessor(project(mapOf("path" to ":compile")))
     implementation (project(":annotations"))
